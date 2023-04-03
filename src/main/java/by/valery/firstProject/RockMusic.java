@@ -9,8 +9,6 @@ import java.util.List;
 @Component
 public class RockMusic implements Music{
 
-    List<String> rockMusicArray = Arrays.asList("Рок №1","Рок №2", "Рок №3");
-
     @Override
     public String getSong() {
         return "Wind cries Mary";
