@@ -1,6 +1,7 @@
 package by.valery.firstProject;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
@@ -8,26 +9,24 @@ import java.util.Random;
 @Component
 public class MusicPlayer {
 
-    private ClassicalMusic classicalMusic;
-    private RockMusic rockMusic;
+    @Value("${musicPlayer.name}")
+    private String name;
 
-    @Autowired
-    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rockMusic = rockMusic;
+    @Value("${musicPlayer.volume}")
+    private int volume;
+
+    public String getName() {
+        return name;
     }
 
-    public void playMusic(GenreOfMusic genreOfMusic) {
+    public int getVolume() {
+        return volume;
+    }
 
-        Random random = new Random();
+    public void playMusic() {
 
-        if (genreOfMusic == GenreOfMusic.CLASSICAL) {
-            int randomIndexClassical = random.nextInt(classicalMusic.classicalMusicArray.size());
-            System.out.println(classicalMusic.classicalMusicArray.get(randomIndexClassical));
-        }
-        else if (genreOfMusic == GenreOfMusic.ROCK) {
-            int randomIndexRock = random.nextInt(classicalMusic.classicalMusicArray.size());
-            System.out.println(rockMusic.rockMusicArray.get(randomIndexRock));
-        }
+        System.out.println(name);
+        System.out.println(volume);
+
     }
 }
