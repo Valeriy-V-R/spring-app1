@@ -9,14 +9,8 @@ public class TestSpring {
                 SpringConfig.class
         );
 
-        ClassicalMusic classicalMusic1 = context.getBean("classicalMusic", ClassicalMusic.class);
-        ClassicalMusic classicalMusic2 = context.getBean("classicalMusic", ClassicalMusic.class);
-
-        System.out.println(classicalMusic1 == classicalMusic2);
-
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         musicPlayer.playMusic();
-        System.out.println("");
 
         context.close();
     }

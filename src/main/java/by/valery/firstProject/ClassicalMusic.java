@@ -12,17 +12,19 @@ import java.util.List;
 
 public class ClassicalMusic implements Music {
 
-    @PostConstruct
-    public void doMyInit(){
-        System.out.println("Инициализация");
-    }
-
-    @PreDestroy
-    public void doMyDestroy(){
-        System.out.println("Завершение");
-    }
     @Override
     public String getSong() {
         return "Hungarian Rhapsody";
     }
+
+    @PostConstruct
+    public void doMyInit() {
+        System.out.println("Инициализация");
+    }
+
+    @PreDestroy
+    public void doMyDestroy() {
+        System.out.println("Завершение");
+    }
+
 }

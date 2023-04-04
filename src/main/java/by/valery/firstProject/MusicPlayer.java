@@ -5,38 +5,27 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 
 public class MusicPlayer {
 
-    @Value("${musicPlayer.name}")
-    private String name;
+    private List musicList;
 
-    @Value("${musicPlayer.volume}")
-    private int volume;
-
-    public String getName() {
-        return name;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    private Music music1;
-    private Music music2;
-
-    public MusicPlayer(Music music1, Music music2) {
-        this.music1 = music1;
-        this.music2 = music2;
+    public MusicPlayer(List musicList) {
+        this.musicList = musicList;
     }
 
     public void playMusic() {
 
-        System.out.println(name);
-        System.out.println(volume);
-        System.out.println("Playing: " + music1.getSong() + ", " + music2.getSong());
+        Random random = new Random();
+        int randomIndex = random.nextInt(musicList.size());
+        Music musicRandom = musicList.get(randomIndex);
+
+        System.out.println("");
+
+        }
 
     }
-}
