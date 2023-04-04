@@ -12,9 +12,9 @@ import java.util.Random;
 
 public class MusicPlayer {
 
-    private List musicList;
+    private List<Music> musicList;
 
-    public MusicPlayer(List musicList) {
+    public MusicPlayer(List<Music> musicList) {
         this.musicList = musicList;
     }
 
@@ -24,7 +24,7 @@ public class MusicPlayer {
         int randomIndex = random.nextInt(musicList.size());
         Music musicRandom = musicList.get(randomIndex);
 
-        System.out.println("");
+        System.out.println(musicRandom.getSong());
 
         }
 
